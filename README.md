@@ -41,8 +41,6 @@ cd expense
 ```
 expense/
 ├── README.md
-├── project-notes.md
-├── api-plan.md
 ├── requirements.txt
 ├── main.py
 ├── models.py
@@ -54,8 +52,11 @@ expense/
 ├── static/
 │   ├── style.css
 │   └── script.js
-└── templates/
-    └── index.html
+├── templates/
+│   └── index.html
+└── docs/
+    ├── project-notes.md
+    └── api-plan.md
 ```
 
 ## Автор
