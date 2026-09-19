@@ -28,7 +28,7 @@
 ## Стек
 
 - Backend: **Python + FastAPI**
-- База данных: **SQLite** (файл `expense.db`)
+- База данных: **SQLite**
 - Frontend: **чистый HTML + CSS + JS**
 
 ## Идеи на будущее
