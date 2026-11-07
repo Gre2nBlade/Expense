@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
-COPY api/ExpenseServer.java .
-RUN javac ExpenseServer.java
+COPY api /app/api
+RUN javac -cp "/app/api/lib/*" /app/api/ExpenseServer.java
 EXPOSE 8080
-CMD ["java", "ExpenseServer"]
+CMD ["java", "-cp", "/app/api/lib/*:/app/api", "ExpenseServer"]

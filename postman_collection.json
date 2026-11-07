@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "Expense API - Transactions (PostgreSQL CRUD)",
+    "description": "Коллекция запросов по плану api-plan.md для проверки CRUD транзакций с PostgreSQL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Healthcheck",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "2. Create Transaction (Расход: Обед)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"expense\",\n  \"amount\": 1500.00,\n  \"category_id\": 3,\n  \"date\": \"2026-09-15\",\n  \"comment\": \"Обед\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "3. Create Transaction (Доход: Зарплата)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"income\",\n  \"amount\": 85000.00,\n  \"category_id\": 1,\n  \"date\": \"2026-09-01\",\n  \"comment\": \"Зарплата\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "4. List All Transactions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "5. Get Transaction by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "1"]
+        }
+      }
+    },
+    {
+      "name": "6. Update Transaction by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"expense\",\n  \"amount\": 1650.00,\n  \"category_id\": 3,\n  \"date\": \"2026-09-15\",\n  \"comment\": \"Бизнес-ланч\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "1"]
+        }
+      }
+    },
+    {
+      "name": "7. Delete Transaction by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "2"]
+        }
+      }
+    }
+  ]
+}
