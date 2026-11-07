@@ -14,8 +14,8 @@
 
 ## Стек
 
-- **Backend:** Python + FastAPI
-- **База данных:** SQLite
+- **Backend:** Java 21
+- **Контейнеризация:** Docker
 - **Frontend:** HTML / CSS / JavaScript
 
 ## Быстрый старт
@@ -24,6 +24,15 @@
 # Клонировать репозиторий
 git clone https://github.com/Gre2nBlade/expense
 cd expense
+
+# Сборка Docker-образа
+docker build -t expense-api .
+
+# Запуск контейнера
+docker run -d -p 8080:8080 --name expense-api expense-api
+
+# Проверка работы API
+curl http://localhost:8080/api/health
 ```
 
 ## Основные возможности
@@ -41,23 +50,37 @@ cd expense
 ```
 expense/
 ├── .gitignore
+├── Dockerfile
 ├── README.md
-├── requirements.txt
-├── main.py
-├── models.py
-├── database.py
-├── routers/
-│   ├── transactions.py
-│   ├── categories.py
-│   └── taxes.py
+├── api-plan.md
+├── git-conflict.md
+├── project-notes.md
+├── screenshots/
+│   ├── api_request.png
+│   ├── docker_logs.png
+│   ├── docker_ps.png
+│   └── git-network.png
+├── api/
+│   ├── ExpenseServer.java
+│   ├── handlers/
+│   │   ├── CategoryHandler.java
+│   │   ├── HealthHandler.java
+│   │   ├── TaxHandler.java
+│   │   └── TransactionHandler.java
+│   ├── models/
+│   │   ├── Category.java
+│   │   ├── Settings.java
+│   │   └── Transaction.java
+│   ├── services/
+│   │   ├── TaxCalculator.java
+│   │   └── TransactionService.java
+│   └── storage/
+│       └── Database.java
 ├── static/
-│   ├── style.css
-│   └── script.js
-├── templates/
-│   └── index.html
-└── docs/
-    ├── project-notes.md
-    └── api-plan.md
+│   ├── script.js
+│   └── style.css
+└── templates/
+    └── index.html
 ```
 
 ## Автор
